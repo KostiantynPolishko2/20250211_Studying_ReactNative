@@ -1,14 +1,16 @@
 import React, {FC} from "react";
 import { View, Text, StyleSheet } from "react-native";
+import WeaponsImage from "./WeaponsImage";
 
 interface IWeaponsCard {
-    model?: string,
+    model: string,
 }
 
 const WeaponsCard:FC<IWeaponsCard> = (props) => {
     return(
         <View style={styles.body}>
-            <Text style={styles.textRow}>{props.model || 'UNDEFINED'}</Text>
+            <Text style={styles.textRow}>{props.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
+            <WeaponsImage model={'ags17'}/>
         </View>
     );
 };
@@ -19,7 +21,7 @@ const styles = StyleSheet.create({
         width: 250,
         height: 200,
         margin: 5,
-        padding: 2,
+        padding: 0,
         borderColor: 'black',
         borderWidth: 0.5,
         borderRadius: 5,

@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <View style={styles.body}>
       <Text style={styles.textRow}>Weapons</Text>
-      <WeaponsCard model="AGS-17"/>
+      <WeaponsCard model="ags17"/>
     </View>
   );
 }
