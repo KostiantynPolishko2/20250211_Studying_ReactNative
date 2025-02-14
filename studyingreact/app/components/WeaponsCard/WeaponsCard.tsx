@@ -1,18 +1,26 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import WeaponsImage from "./WeaponsImage";
 import WeaponsData from "./WeaponsData";
 import { DisplayWrapper } from "./WeaponsCard.styled";
 import { IWeaponsCard } from "./WeaponsData";
-
+import Order from "./Order";
 
 const WeaponsCard:FC<IWeaponsCard> = (props) => {
+
+    const handleOrderWeapons = () => {
+        console.log('weapons', props.weapons);
+    }
+
     return(
         <View style={styles.body}>
             <Text style={styles.textRow}>{props.weapons?.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
             <DisplayWrapper bgColor="lightblue">
                 <WeaponsImage model={'ags17'}/>
-                <WeaponsData weapons={props.weapons}/>
+                <View>
+                    <WeaponsData weapons={props.weapons}/>
+                    <Order handleOrder={handleOrderWeapons}/>
+                </View>
             </DisplayWrapper>
         </View>
     );

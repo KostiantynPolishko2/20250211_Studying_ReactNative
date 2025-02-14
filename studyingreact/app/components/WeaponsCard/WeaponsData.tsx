@@ -31,9 +31,11 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 5,
         borderRadius: 5,
+        height: 75,
     },
     rowText: {
         color: 'white',
+        lineHeight: 17,
     }
 });
 
