@@ -4,7 +4,9 @@ import { IWeaponsData } from "./components/WeaponsCard/WeaponsData";
 
 export default function Index() {
 
-  const ags17: IWeaponsData = {model: 'ags-17', name: 'granatomet', price: 3200, weight: 18}
+  const ags17: IWeaponsData = {model: 'ags-17', name: 'granatomet', isVisible: true, price: 3200, weight: 18,
+    description: 'Ags-17 is granotomet, is use for protect and attacks! Uktaine army uses it effectively every day.', image_path: ''
+  }
 
   return (
     <View style={styles.body}>

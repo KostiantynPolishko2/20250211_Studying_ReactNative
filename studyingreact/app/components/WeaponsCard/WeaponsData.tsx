@@ -5,8 +5,11 @@ import { View, Text, StyleSheet } from "react-native";
 export interface IWeaponsData {
     model: string,
     name: string,
+    isVisible: boolean,
     price: number,
     weight: number,
+    description: string,
+    image_path: string,
 }
 
 export interface IWeaponsCard {
