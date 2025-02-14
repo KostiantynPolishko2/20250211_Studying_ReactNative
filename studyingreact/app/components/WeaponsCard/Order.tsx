@@ -3,6 +3,7 @@ import { Button } from "react-native-elements";
 import { View, StyleSheet, Alert, Text } from "react-native";
 
 interface IOrder {
+    isAble?: boolean,
     handleOrder: ()=>void,
 }
 
@@ -13,6 +14,7 @@ const Order: FC<IOrder> = (props) =>
             onPress={props.handleOrder}
             buttonStyle = {styles.buttonSize}
             titleStyle = {styles.buttonText}
+            disabled = {!props.isAble}
         />
     </View>
 

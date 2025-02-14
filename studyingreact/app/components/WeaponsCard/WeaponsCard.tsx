@@ -13,14 +13,16 @@ const WeaponsCard:FC<IWeaponsCard> = (props) => {
         console.log('weapons', props.weapons);
     }
 
+    const bgColor = props.weapons?.isVisible? 'lightblue' : '#a3a395';
+
     return(
         <View style={styles.body}>
             <Text style={styles.textRow}>{props.weapons?.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
-            <DisplayWrapper bgColor="lightblue">
+            <DisplayWrapper bgColor={bgColor}>
                 <WeaponsImage model={'ags17'}/>
                 <View>
                     <WeaponsData weapons={props.weapons}/>
-                    <Order handleOrder={handleOrderWeapons}/>
+                    <Order isAble={props.weapons?.isVisible} handleOrder={handleOrderWeapons}/>
                 </View>
             </DisplayWrapper>
             <Description description={props.weapons?.description || 'none'}/>
