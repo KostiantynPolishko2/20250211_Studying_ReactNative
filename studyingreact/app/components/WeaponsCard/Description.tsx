@@ -9,8 +9,15 @@ const Description: FC<IDescription> = (props) => {
     
     const [isShow, setShow] = useState<boolean>(false);
 
+    const handleShowHideText = (flag: boolean) => {
+        setShow(flag);
+    }
+
     return(
-        <View style={[styles.body, {flex: !isShow? 1 : 0}]}>
+        <View 
+            onTouchStart={()=>{handleShowHideText(true)}}
+            onTouchEnd={()=>{handleShowHideText(false)}}
+            style={[styles.body, {minHeight: !isShow? 25 : 0}]}>
             <Text 
                 style={styles.text}
                 numberOfLines={!isShow? 1 : 0} 
