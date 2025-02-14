@@ -1,26 +1,14 @@
-import { Text, View, StyleSheet } from "react-native";
-import WeaponsCard from "./components/WeaponsCard/WeaponsCard";
-import { IWeaponsData } from "./components/WeaponsCard/WeaponsData";
+import Weapons from "./components/Weapons";
+import Header from "./components/FixedArea/Header";
+import Footer from "./components/FixedArea/Footer";
 
 export default function Index() {
 
-  const ags17: IWeaponsData = {model: 'ags-17', name: 'granatomet', isVisible: true, price: 3200, weight: 18,
-    description: 'Ags-17 is granotomet, is use for protect and attacks! Uktaine army uses it effectively every day.', image_path: ''
-  }
-
-  return (
-    <View style={styles.body}>
-      <Text style={styles.textRow}>Weapons</Text>
-      <WeaponsCard weapons={ags17}/>
-    </View>
+  return(
+    <>
+      <Header/>
+      <Weapons/>
+      <Footer/>
+    </>
   );
 }
-
-const styles = StyleSheet.create({body: {
-  margin: 0,
-  padding: 0,
-  backgroundColor: '#dfffb8',
-},
- textRow: {
-  textAlign:'center',
- }});
