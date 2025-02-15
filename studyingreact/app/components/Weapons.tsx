@@ -1,8 +1,10 @@
 import React, { FC, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, FlatList } from "react-native";
 import WeaponsCard from "./WeaponsCard/WeaponsCard";
 import { IWeaponsData } from "./WeaponsCard/WeaponsData";
 import { weapons as  _weapons} from "../constants/CardsDates";
+import { DisplayWrapper } from "./WeaponsCard/WeaponsCard.styled";
+import WeaponsItem from "./WeaponsItems/WeaponsItem";
 
 interface IWeapons {}
 
@@ -13,6 +15,9 @@ const Weapons: FC<IWeapons> = () => {
     return (
         <View style={styles.body}>
             <Text style={styles.textRow}>Weapons</Text>
+            <DisplayWrapper>
+                {weapons.map((weapon, i) => <WeaponsItem key={i} model={weapon.model}/>)}
+            </DisplayWrapper>
             <WeaponsCard weapons={weapons[0]}/>
         </View>
     );
