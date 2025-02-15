@@ -13,7 +13,7 @@ export interface IWeaponsData {
 }
 
 export interface IWeaponsCard {
-    weapons?: IWeaponsData,
+    weapons?: IWeaponsData | null,
 }
 
 const WeaponsData: FC<IWeaponsCard> = (props) => {

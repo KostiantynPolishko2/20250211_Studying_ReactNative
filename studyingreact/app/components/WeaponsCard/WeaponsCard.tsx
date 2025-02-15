@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import WeaponsImage from "./WeaponsImage";
 import WeaponsData from "./WeaponsData";
-import Order from "./Order";
+import OrderButton from "./OrderButton";
 import { DisplayWrapper } from "./WeaponsCard.styled";
 import { IWeaponsCard } from "./WeaponsData";
 import Description from "./Description";
@@ -22,7 +22,7 @@ const WeaponsCard:FC<IWeaponsCard> = (props) => {
                 <WeaponsImage model={'ags17'}/>
                 <View>
                     <WeaponsData weapons={props.weapons}/>
-                    <Order isAble={props.weapons?.isVisible} handleOrder={handleOrderWeapons}/>
+                    <OrderButton isAble={props.weapons?.isVisible} handleOrder={handleOrderWeapons}/>
                 </View>
             </DisplayWrapper>
             <Description description={props.weapons?.description || 'none'}/>

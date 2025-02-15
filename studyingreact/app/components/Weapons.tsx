@@ -1,24 +1,36 @@
-import React, { FC, useState } from "react";
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import React, { FC, useState, useEffect, createContext } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import WeaponsCard from "./WeaponsCard/WeaponsCard";
 import { IWeaponsData } from "./WeaponsCard/WeaponsData";
-import { weapons as  _weapons} from "../constants/CardsDates";
-import { DisplayWrapper } from "./WeaponsCard/WeaponsCard.styled";
-import WeaponsItem from "./WeaponsItems/WeaponsItem";
+import { weapons, models} from "../constants/CardsDates";
+import WeaponsItems from "./WeaponsItems/WeaponsItems";
+import { fetchWeapon } from "./WeaponsCard/api";
+
+export const ContextHandleSetWeapon = createContext((model: string):void=>{});
 
 interface IWeapons {}
 
 const Weapons: FC<IWeapons> = () => {
 
-    const [weapons, setWeapons] = useState<IWeaponsData[]>(_weapons);
+    const [weaponModels, setWeaponModels] = useState<string[]>([]);
+    const [weapon, setWeapon] = useState<IWeaponsData | null>(null);
+
+    const handleSetWeapon = (model: string) => {
+        console.log(model.toLowerCase());
+        setWeapon(fetchWeapon(model, weapons));
+    }
+
+    useEffect(() => {
+        setWeaponModels(models);
+    }, models)
 
     return (
         <View style={styles.body}>
-            <Text style={styles.textRow}>Weapons</Text>
-            <DisplayWrapper>
-                {weapons.map((weapon, i) => <WeaponsItem key={i} model={weapon.model}/>)}
-            </DisplayWrapper>
-            <WeaponsCard weapons={weapons[0]}/>
+            <Text style={styles.textRow}>PRODUCTS</Text>
+            <ContextHandleSetWeapon.Provider value={handleSetWeapon}>
+                <WeaponsItems models={weaponModels}/>
+            </ContextHandleSetWeapon.Provider>
+            {weapon? <WeaponsCard weapons={weapon}/> : <></>}
         </View>
     );
 };

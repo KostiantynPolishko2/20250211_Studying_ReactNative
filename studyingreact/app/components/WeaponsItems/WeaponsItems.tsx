@@ -1,18 +1,27 @@
 import React, { FC } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { IWeaponsData } from "../WeaponsCard/WeaponsData";
 import WeaponsItem from "./WeaponsItem";
+import { styles as generalStyles } from "@/app/constants/styles";
 
 interface IWeaponsItem {
-    weapons: IWeaponsData[],
+    models: string[],
 }
 
 const WeaponsItems: FC<IWeaponsItem> = (props) => {
     return(
-        <View>
-            {props.weapons.map((weapon, i) => <WeaponsItem key={i} model={weapon.model}/>)}
+        <View style={[generalStyles.flex_row, styles.body]}>
+            {props.models.map((model, i) => <WeaponsItem key={i} model={model}/>)}
         </View>
     );
 }
 
-export default WeaponsItem;
+const styles = StyleSheet.create({
+    body: {
+        backgroundColor: '#90d180',
+        width: '95%',
+        borderRadius: 5,
+    }
+});
+
+export default WeaponsItems;

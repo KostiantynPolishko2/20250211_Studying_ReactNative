@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { Button } from "react-native-elements";
 import { View, StyleSheet, Alert, Text } from "react-native";
 
-interface IOrder {
+interface IOrderButton {
     isAble?: boolean,
     handleOrder: ()=>void,
 }
 
-const Order: FC<IOrder> = (props) => 
+const OrderButton: FC<IOrderButton> = (props) => 
     <View style={styles.body}>
         <Button 
             title="ORDER"
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Order;
+export default OrderButton;
