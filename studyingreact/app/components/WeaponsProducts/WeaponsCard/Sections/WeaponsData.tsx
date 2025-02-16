@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import styled from "styled-components/native";
 import { View, Text, StyleSheet } from "react-native";
+import RecordData from "./RecordData";
+import { styles as _styles } from "@/app/constants/styles";
 
 export interface IWeaponsData {
     model: string,
@@ -19,17 +20,17 @@ export interface IWeaponsCard {
 const WeaponsData: FC<IWeaponsCard> = (props) => {
     return(
         <View style={styles.body}>
-            <Text style={styles.rowText}>model - {props.weapons?.model || 'undefined'}</Text>
-            <Text style={styles.rowText}>name - {props.weapons?.name || 'undefined'}</Text>
-            <Text style={styles.rowText}>price - {props.weapons?.price || '0.0'}</Text>
-            <Text style={styles.rowText}>weight - {props.weapons?.weight || '0.0'}</Text>
+            <RecordData type="model" value={props.weapons?.model}/>
+            <RecordData type="name" value={props.weapons?.name}/>
+            <RecordData type="price, uah" value={props.weapons?.price.toString()}/>
+            <RecordData type="weight, kg" value={props.weapons?.weight.toString()}/>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
     body: {
-        backgroundColor: '#8089b4',
+        backgroundColor: '#5360a1',
         width: 130,
         margin: 5,
         padding: 5,
