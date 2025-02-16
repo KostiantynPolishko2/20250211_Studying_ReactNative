@@ -1,15 +1,8 @@
 import { Text, View } from "react-native";
+import MainPage from "./components/MainPage";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Reset App!</Text>
-    </View>
+    <MainPage/>
   );
 }
