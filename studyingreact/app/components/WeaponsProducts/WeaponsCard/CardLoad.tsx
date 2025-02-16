@@ -1,13 +1,14 @@
 import React, { FC } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import WeaponsImage from "./Sections/WeaponsImage";
 import WeaponsData from "./Sections/WeaponsData";
 import OrderButton from "./Sections/OrderButton";
 import { DisplayWrapper } from "./WeaponsCard.styled";
 import { IWeaponsCard } from "./Sections/WeaponsData";
 import Description from "./Sections/Description";
+import { StylesCard } from "./WeaponsCard.styled";
 
-const WeaponsCard:FC<IWeaponsCard> = (props) => {
+const CardLoad:FC<IWeaponsCard> = (props) => {
 
     const handleOrderWeapons = () => {
         console.log('weapons', props.weapons);
@@ -16,10 +17,10 @@ const WeaponsCard:FC<IWeaponsCard> = (props) => {
     const bgColor = props.weapons?.isVisible? 'lightblue' : '#a3a395';
 
     return(
-        <View style={styles.body}>
-            <Text style={styles.textRow}>{props.weapons?.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
+        <View style={StylesCard.body}>
+            <Text style={StylesCard.textRow}>{props.weapons?.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
             <DisplayWrapper bgColor={bgColor}>
-                <WeaponsImage model={'ags17'}/>
+                <WeaponsImage model={'mk-19'}/>
                 <View>
                     <WeaponsData weapons={props.weapons}/>
                     <OrderButton isAble={props.weapons?.isVisible} handleOrder={handleOrderWeapons}/>
@@ -30,26 +31,4 @@ const WeaponsCard:FC<IWeaponsCard> = (props) => {
     );
 };
 
-const styles = StyleSheet.create({
-    body: {
-        backgroundColor: '#92d442',
-        width: 250,
-        height: 180,
-        margin: 5,
-        padding: 0,
-        borderColor: 'black',
-        borderWidth: 0.5,
-        borderRadius: 5,
-    },
-    textRow: {
-        textAlign:'center',
-        fontSize: 16,
-        color: '#fafa4d',
-        fontWeight: 600,
-        textShadowOffset: {width: 2, height: 2},
-        textShadowColor: 'black',
-        textShadowRadius: 5,
-    }
-});
-
-export default WeaponsCard;
+export default CardLoad;

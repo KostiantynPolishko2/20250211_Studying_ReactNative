@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect, createContext } from "react";
 import { Text, View, StyleSheet } from "react-native";
-import WeaponsCard from "./WeaponsCard/WeaponsCard";
+import CardLoad from "./WeaponsCard/CardLoad";
 import { IWeaponsData } from "./WeaponsCard/Sections/WeaponsData";
 import { weapons, models} from "../../constants/CardsDates";
 import WeaponsItems from "./WeaponsItems/WeaponsItems";
 import { fetchWeapon } from "./WeaponsCard/api";
+import CardStarted from "./WeaponsCard/CardStarted";
 
 export const ContextHandleSetWeapon = createContext((model: string):void=>{});
 
@@ -30,7 +31,7 @@ const WeaponsProducts: FC<IWeaponsProducts> = () => {
             <ContextHandleSetWeapon.Provider value={handleSetWeapon}>
                 <WeaponsItems models={weaponModels}/>
             </ContextHandleSetWeapon.Provider>
-            {weapon? <WeaponsCard weapons={weapon}/> : <></>}
+            {weapon? <CardLoad weapons={weapon}/> : <CardStarted/>}
         </View>
     );
 };

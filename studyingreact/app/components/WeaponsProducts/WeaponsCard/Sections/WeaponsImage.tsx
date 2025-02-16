@@ -2,9 +2,12 @@ import React, { FC } from "react";
 import { Image, StyleSheet } from "react-native";
 
 const weapons = {
-    ags17: require('../../../../../assets/images/ags17.png'),
-    uag40: require('../../../../../assets/images/uag40.png'),
-  };
+    'ags-17': require('../../../../../assets/images/ags-17.png'),
+    'uag-40': require('../../../../../assets/images/uag-40.png'),
+    'mk-19': require('../../../../../assets/images/mk-19.png'),
+    'ua-army-logo': require('../../../../../assets/images/ua-army-logo.png'),
+    'ua-army-force': require('../../../../../assets/images/ua-army-force.png'),
+};
 
 interface IWeaponsImage {
     model: keyof typeof weapons,
