@@ -1,0 +1,34 @@
+import React, { FC } from "react";
+import { View, Text } from "react-native";
+import WeaponsImage from "./Sections/WeaponsImage";
+import WeaponsData from "./Sections/WeaponsData";
+import OrderButton from "./Sections/OrderButton";
+import { DisplayWrapper } from "./WeaponsCard.styled";
+import { IWeaponsCard } from "./Sections/WeaponsData";
+import Description from "./Sections/Description";
+import { StylesCard } from "./WeaponsCard.styled";
+
+const CardLoad:FC<IWeaponsCard> = (props) => {
+
+    const handleOrderWeapons = () => {
+        console.log('weapons', props.weapons);
+    }
+
+    const bgColor = props.weapons?.isVisible? 'lightblue' : '#a3a395';
+
+    return(
+        <View style={StylesCard.body}>
+            <Text style={StylesCard.textRow}>{props.weapons?.model?.toLocaleUpperCase() || 'UNDEFINED'}</Text>
+            <DisplayWrapper bgColor={bgColor}>
+                <WeaponsImage model={'mk-19'}/>
+                <View>
+                    <WeaponsData weapons={props.weapons}/>
+                    <OrderButton isAble={props.weapons?.isVisible} handleOrder={handleOrderWeapons}/>
+                </View>
+            </DisplayWrapper>
+            <Description description={props.weapons?.description || 'none'}/>
+        </View>
+    );
+};
+
+export default CardLoad;
