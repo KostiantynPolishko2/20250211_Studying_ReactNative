@@ -1,14 +1,9 @@
-import Weapons from "./components/Weapons";
-import Header from "./components/FixedArea/Header";
-import Footer from "./components/FixedArea/Footer";
+import { Text } from "react-native";
+import WeaponsProducts from "./components/WeaponsProducts/WeaponsProducts";
 
 export default function Index() {
 
   return(
-    <>
-      <Header/>
-      <Weapons/>
-      <Footer/>
-    </>
+    <WeaponsProducts/>
   );
 }

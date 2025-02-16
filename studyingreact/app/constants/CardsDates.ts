@@ -1,4 +1,4 @@
-import { IWeaponsData } from "../components/WeaponsCard/WeaponsData"
+import { IWeaponsData } from "../components/WeaponsProducts/WeaponsCard/Sections/WeaponsData"
 
 export const models: string[] = ['ags-17', 'uag-40', 'mk-19'];
 

@@ -1,4 +1,4 @@
-import { IWeaponsData } from "./WeaponsData"
+import { IWeaponsData } from "./Sections/WeaponsData"
 
 export const fetchWeapon = (model: string, weapons: IWeaponsData[]):IWeaponsData | null => {
     const size = weapons.length;

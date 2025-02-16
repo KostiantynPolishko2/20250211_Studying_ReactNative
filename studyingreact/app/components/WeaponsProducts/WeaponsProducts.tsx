@@ -1,22 +1,22 @@
 import React, { FC, useState, useEffect, createContext } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import WeaponsCard from "./WeaponsCard/WeaponsCard";
-import { IWeaponsData } from "./WeaponsCard/WeaponsData";
-import { weapons, models} from "../constants/CardsDates";
+import { IWeaponsData } from "./WeaponsCard/Sections/WeaponsData";
+import { weapons, models} from "../../constants/CardsDates";
 import WeaponsItems from "./WeaponsItems/WeaponsItems";
 import { fetchWeapon } from "./WeaponsCard/api";
 
 export const ContextHandleSetWeapon = createContext((model: string):void=>{});
 
-interface IWeapons {}
+interface IWeaponsProducts {}
 
-const Weapons: FC<IWeapons> = () => {
+const WeaponsProducts: FC<IWeaponsProducts> = () => {
 
     const [weaponModels, setWeaponModels] = useState<string[]>([]);
     const [weapon, setWeapon] = useState<IWeaponsData | null>(null);
 
     const handleSetWeapon = (model: string) => {
-        console.log(model.toLowerCase());
+        // console.log(model.toLowerCase());
         setWeapon(fetchWeapon(model, weapons));
     }
 
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Weapons;
+export default WeaponsProducts;

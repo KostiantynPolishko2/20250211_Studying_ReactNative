@@ -1,6 +1,6 @@
 import React, { FC, useState, useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ContextHandleSetWeapon } from "../Weapons";
+import { ContextHandleSetWeapon } from "../WeaponsProducts";
 
 interface IWeaponsItem {
     model: string,

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { View, StyleSheet } from "react-native";
-import { IWeaponsData } from "../WeaponsCard/WeaponsData";
+import { IWeaponsData } from "../WeaponsCard/Sections/WeaponsData";
 import WeaponsItem from "./WeaponsItem";
 import { styles as generalStyles } from "@/app/constants/styles";
 

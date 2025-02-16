@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import WeaponsImage from "./WeaponsImage";
-import WeaponsData from "./WeaponsData";
-import OrderButton from "./OrderButton";
+import WeaponsImage from "./Sections/WeaponsImage";
+import WeaponsData from "./Sections/WeaponsData";
+import OrderButton from "./Sections/OrderButton";
 import { DisplayWrapper } from "./WeaponsCard.styled";
-import { IWeaponsCard } from "./WeaponsData";
-import Description from "./Description";
+import { IWeaponsCard } from "./Sections/WeaponsData";
+import Description from "./Sections/Description";
 
 const WeaponsCard:FC<IWeaponsCard> = (props) => {
 

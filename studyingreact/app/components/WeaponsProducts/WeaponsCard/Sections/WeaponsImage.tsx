@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { Image, StyleSheet } from "react-native";
 
 const weapons = {
-    ags17: require('../../../assets/images/ags17.png'),
-    uag40: require('../../../assets/images/uag40.png'),
+    ags17: require('../../../../../assets/images/ags17.png'),
+    uag40: require('../../../../../assets/images/uag40.png'),
   };
 
 interface IWeaponsImage {
@@ -12,13 +12,13 @@ interface IWeaponsImage {
 
 const WeaponsImage: FC<IWeaponsImage> = ({model}) => {
 
-    const error = '../../../assets/images/404.png';
+    const error = '../../../../../assets/images/404.png';
 
     return(
         <Image 
-        style={styles.body} 
-        source={model && weapons[model]? weapons[model] : error}
-        alt='weapons'
+            style={styles.body} 
+            source={model && weapons[model]? weapons[model] : error}
+            alt='weapons'
         />
     );
 };
